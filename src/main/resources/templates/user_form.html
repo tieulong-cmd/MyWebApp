@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>[[${pageTitle}]]</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<div class="container-fluid">
+    <div>
+        <div class="text-center">
+            <h2>[[${pageTitle}]]</h2>
+        </div>
+        <form th:action="@{/users/save}" method="post" th:object="${user}" style="max-width: 500px; margin: 0px auto">
+            <input hidden="" th:field="*{id}"/>
+            <div class="border border-secondary rounded p-3">
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">E-mail</label>
+                    <div class="col-sm-8">
+                        <input type="email" th:field="*{email}" required minlength="8" maxlength="45" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">First Name</label>
+                    <div class="col-sm-8">
+                        <input type="text" th:field="*{firstName}" required minlength="2" maxlength="45" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Last Name</label>
+                    <div class="col-sm-8">
+                        <input type="text" th:field="*{lastName}" required minlength="2" maxlength="45" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Password</label>
+                    <div class="col-sm-8">
+                        <input type="password" th:field="*{password}" required minlength="8" maxlength="15" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Enabled: </label>
+                    <div class="col-sm-8">
+                        <input type="checkbox" th:field="*{enabled}"/>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary m-2">Save</button>
+                    <button type="button" class="btn btn-secondary m-2" onclick="cancel_form()">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+    function cancel_form(){
+        window.location = "[[@{/users}]]"
+    }
+</script>
+</body>
+</html>
