@@ -15,7 +15,7 @@ https://github.com/tieulong-cmd/MyWebApp.git
   ```properties
   spring.datasource.url=jdbc:mysql://localhost:3306/usersdb
   spring.datasource.username=root
-  spring.datasource.password=123456
+  spring.datasource.password=mật khẩu của bạn
   spring.jpa.hibernate.ddl-auto=update
   spring.jpa.properties.hibernate.show_sql=true
 
